@@ -13,13 +13,16 @@
 <div class = "container">
 <div class = "text-center">
 
-<h1>Login</h1>
+<h1>Add New Employee</h1>
 
 <div class = "row justify-content-center ">
 
-<form class="col-4">
-    <input type = "text" class="form-control" name = "username" id = "username" placeholder="Username"><br>
-    <input type = "password" class="form-control" name = "password" id ="password" placeholder="Password"><br>
+<form method = "post" action = "/save" class="col-4">
+{{csrf_field()}}
+    <input type = "text" class="form-control" name = "fname" id = "fname" placeholder="First name"><br>
+    <input type = "text" class="form-control" name = "lname" id = "lname" placeholder="Last name"><br>
+    <input type = "text" class="form-control" name = "phone" id ="phone" placeholder="Phone No"><br>
+    <input type = "text" class="form-control" name = "nic" id ="nic" placeholder="NIC No"><br>
     <input type="submit">
 </form>
 
