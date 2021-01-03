@@ -22,3 +22,5 @@ Route::get('/login', 'AdminController@login');
 Route::get('/add', 'AdminController@add');
 
 Route::post('/save', 'AdminController@addEmployee');
+
+Route::get('/display', 'AdminController@display');

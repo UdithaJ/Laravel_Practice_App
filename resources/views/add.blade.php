@@ -17,6 +17,12 @@
 
 <div class = "row justify-content-center ">
 
+@foreach($errors -> all() as $error)
+<div class="alert alert-danger" role="alert">
+    {{$error}}
+</div>
+@endforeach
+
 <form method = "post" action = "/save" class="col-4">
 {{csrf_field()}}
     <input type = "text" class="form-control" name = "fname" id = "fname" placeholder="First name"><br>
