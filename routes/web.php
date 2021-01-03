@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login', 'AdminController@login');
+Route::get('/login', 'AdminController@adminLogin');
 
 Route::get('/add', 'AdminController@add');
 
@@ -29,4 +30,14 @@ Route::get('/view/{id}', 'AdminController@viewProfile');
 
 Route::post('/update', 'AdminController@updateEmployee');
 
+Route::post('/validate', 'AdminController@validateUser');
+
 Route::get('/delete/{id}', 'AdminController@deleteEmployee');
+
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+// Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -2,15 +2,47 @@
 
 namespace App\Http\Controllers;
 
+
+use App\admin;
 use App\employee;
+use App\Models\User\User as UserUser;
+use App\User;
+use Illuminate\Foundation\Auth\User as AuthUser;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use phpDocumentor\Reflection\PseudoTypes\True_;
 
 class AdminController extends Controller
 {
     //
-public function login(){
+public function adminLogin(){
 
-    return view('login');
+
+    return view('Adminlogin');
+
+}
+
+
+public function validateUser(Request $request){
+
+    if(isset($_POST['username']) && isset($_POST['password'])){
+
+        $username =  $request -> username;
+        $pass =  $request -> password;
+
+      
+        $user = admin::where('username', $username)->where('password', $pass)->first();
+
+        if ($user == True) {
+
+            return redirect('display');
+        }
+
+        else{
+
+            return redirect('login');
+        }
+}
 
 }
 
@@ -34,6 +66,7 @@ $employee -> lname = $request -> lname;
 $employee -> contact = $request -> phone; 
 $employee -> NIC = $request -> nic; 
 $employee -> save();
+return redirect('display');
 
 }
 
@@ -58,8 +91,8 @@ public function viewProfile($id){
 
 public function updateEmployee(Request $request){
 
-    $id = $request -> eid;
-    $emp = employee::find($id);
+    $id = $request -> eid; 
+    $emp = employee::find($id); // filter by primary key
     
     $this -> validate($request,[
     
