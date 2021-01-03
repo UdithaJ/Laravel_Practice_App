@@ -23,7 +23,8 @@
     <td>{{$emp->lname}}</td>
     <td>{{$emp->contact}}</td>
     <td>{{$emp->NIC}}</td>
-    <td><input type="button" value = "Update" class="btn btn-danger"></td>
+    <td><a href="/view/{{$emp->id}}" class="btn btn-success">View</a></td>
+  
 </tr>
 @endforeach
 

@@ -48,4 +48,42 @@ public function display(){
 
 }
 
+public function viewProfile($id){
+
+    $emp=employee::find($id);
+    return view('view') -> with('employee',$emp);
+
+}
+
+
+public function updateEmployee(Request $request){
+
+    $id = $request -> eid;
+    $emp = employee::find($id);
+    
+    $this -> validate($request,[
+    
+        'nic' => 'required',
+    ]);
+    
+    $emp -> fname = $request -> fname;
+    $emp -> lname = $request -> lname; 
+    $emp -> contact = $request -> phone; 
+    $emp -> NIC = $request -> nic; 
+    $emp -> save();
+
+    return redirect('display');
+    
+    }
+
+
+    
+public function deleteEmployee($id){
+
+    $emp=employee::find($id);
+    $emp -> delete();
+    return redirect('display');
+
+}
+
 }

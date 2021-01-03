@@ -24,3 +24,9 @@ Route::get('/add', 'AdminController@add');
 Route::post('/save', 'AdminController@addEmployee');
 
 Route::get('/display', 'AdminController@display');
+
+Route::get('/view/{id}', 'AdminController@viewProfile');
+
+Route::post('/update', 'AdminController@updateEmployee');
+
+Route::get('/delete/{id}', 'AdminController@deleteEmployee');
